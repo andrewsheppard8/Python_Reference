@@ -60,27 +60,32 @@ parcels = [
     {"parcel_id": "A106", "acreage": 18, "zone": "Residential"}
 ]
 
-####filtered_parcels=list(filter(lambda s:s["acreage"] > 1,parcels))
-##filtered_parcels=[p for p in parcels if p["acreage"] > 1]
-####print(filtered_parcels)
-##zones=set(p["zone"] for p in filtered_parcels)
-##grouped_parcels={zone:[p for p in filtered_parcels if p["zone"] == zone] for zone in zones}
-####print(grouped_parcels)
-##for zone,parcels_list in grouped_parcels.items():
-##    parcels_list.sort(key=lambda p:p["acreage"],reverse=True)
-####print(grouped_parcels)
-##zone_totals={
-##    zone: sum(p["acreage"] for p in parcels)
-##    for zone,parcels in grouped_parcels.items()
-##}
-##
-##print(zone_totals)
+##filtered_parcels=list(filter(lambda s:s["acreage"] > 1,parcels))
+filtered_parcels=[p for p in parcels if p["acreage"] > 1]
+##print(filtered_parcels)
+zones=set(p["zone"] for p in filtered_parcels)
+grouped_parcels={zone:[p for p in filtered_parcels if p["zone"] == zone] for zone in zones}
+##print(grouped_parcels)
+for zone,parcels_list in grouped_parcels.items():
+    parcels_list.sort(key=lambda p:p["acreage"],reverse=True)
+print(grouped_parcels)
+zone_totals={
+    zone: sum(p["acreage"] for p in parcels)
+    for zone,parcels in grouped_parcels.items()
+}
+
+print(zone_totals)
 
 filtered_parcels=[p for p in parcels if p["acreage"]>10]
 zones=set(p["zone"] for p in filtered_parcels)
 grouped_parcels={zone:[p for p in filtered_parcels if p["zone"] == zone] for zone in zones}
 for zone,parcel_list in grouped_parcels.items():
     parcel_list.sort(key=lambda p:p["acreage"],reverse=True)
+
+for x,y in grouped_parcels.items():
+    y.sort(key=lambda z:z["acreage"], reverse=True)
+
+
 zone_totals={
     zone: sum(p["acreage"] for p in parcels)
     for zone,parcels in grouped_parcels.items()
