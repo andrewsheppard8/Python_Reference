@@ -128,7 +128,7 @@ parcels = {}
 while True:
     name = get_parcel_name()
     sqft = get_sqft()
-    parcels[name] = sqft
+    parcels[name] = sqft # this is what actually builds the dictionary
     cont = get_yes_no("Add another parcel? (Y/N): ")
     if cont == "N":
         break
@@ -140,13 +140,13 @@ print(f"Total parcel size: {total_size(parcels)} square feet")
 print(f"Average parcel size: {round(average_size(parcels))} square feet")
 largest_parcel_name, largest_parcel_size = largest_size(parcels)
 print(f"Largest parcel is {largest_parcel_name} with a size of {largest_parcel_size} square feet")
-##change = get_yes_no("\nConvert square feet to acres? (Y/N): ")
-##
-##if change == "Y":
-##    parcels = {k: v / 43560 for k, v in parcels.items()}
-##    print("\nAcres updated:")
-##    for key, value in parcels.items():
-##        print(f"Parcel {key} is {value} acres")
-##else:
-##    print("Completed")
+change = get_yes_no("\nConvert square feet to acres? (Y/N): ")
+
+if change == "Y":
+    parcels = {k: v / 43560 for k, v in parcels.items()}
+    print("\nAcres updated:")
+    for key, value in parcels.items():
+        print(f"Parcel {key} is {value} acres")
+else:
+    print("Completed")
 
