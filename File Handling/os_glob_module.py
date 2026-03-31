@@ -95,7 +95,7 @@ csv_files = glob.glob(os.path.join(cwd, "*.csv"), recursive=True)
 ##    print(f"Moved: {csv} -> {destination_folder}")
 
 # 10. List CSV files modified in the last 7 days
-seven_days_seconds = 7 * 24 * 3600  # 7 days in seconds
-for csv in csv_files:
-    if time.time() - os.path.getmtime(csv) < seven_days_seconds:
-        print("Recently modified CSV:", csv)
+##seven_days_seconds = 7 * 24 * 3600  # 7 days in seconds
+##for csv in csv_files:
+##    if time.time() - os.path.getmtime(csv) < seven_days_seconds:
+##        print("Recently modified CSV:", csv)
